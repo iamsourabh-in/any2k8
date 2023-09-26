@@ -1,22 +1,22 @@
 # Use an official Node.js runtime as the base image
-# FROM node:18 AS builder
+FROM node:18 AS builder
 
 # # Set the working directory in the container
-# WORKDIR /app
+WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
-#COPY package*.json ./
+COPY package*.json ./
 
 # Install app dependencies
-#RUN npm install
+RUN npm install
 
 # Copy the rest of your application code
-#COPY . .
+COPY . .
 
 # Build the Angular app for production
-#RUN npm run build
+RUN npm run build
 
 # Use a lightweight web server to serve the app
 FROM nginx:alpine
-COPY /dist/ng-frontend /usr/share/nginx/html
+COPY --from=builder /app/dist/ng-frontend /usr/share/nginx/html
 EXPOSE 80
