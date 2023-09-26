@@ -3,6 +3,11 @@ kind: Deployment
 metadata:
   name: dotnet-api-deployment
 spec:
+  strategy:
+     type: RollingUpdate
+     rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   replicas: 2
   selector:
     matchLabels:
@@ -15,6 +20,13 @@ spec:
       containers:
         - name: dotnet-api-container
           image: cloudnxt/dotnetapi:v1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
           ports:
             - containerPort: 80
           securityContext:
