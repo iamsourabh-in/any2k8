@@ -17,3 +17,10 @@ spec:
         image: cloudnxt/ngfrontend:1.0 # Use the image you pushed
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 200m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
