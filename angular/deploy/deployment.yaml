@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ng-frontend-deployment
 spec:
-  replicas: 3 # Set the number of desired replicas
+  replicas: 1 # Set the number of desired replicas
   selector:
     matchLabels:
       app: ng-frontend
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ng-frontend
-        image: cloudnxt/ngfrontend:1.0 # Use the image you pushed
+        image: cloudnxt/ng-frontend:1.0 # Use the image you pushed
         ports:
         - containerPort: 80
         resources:
