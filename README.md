@@ -1,7 +1,7 @@
 # any2k8
-A repository having a collection of samples of all major languages deployed and test in K8
+A repository having a collection of samples of all major languages deployed and test in K8 with all the best pratices
 
-It keep in mind the production ready scenario and tried to make a 
+It tries to keep in mind the production ready scenario and tried to make a 
 
 
 1) Secure env to build
